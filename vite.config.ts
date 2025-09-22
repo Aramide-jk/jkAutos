@@ -9,7 +9,7 @@ export default defineConfig({
     proxy: {
       "/api": {
         target:
-          "https://jk-autos-backend.onrender.com || http://localhost:5000",
+          "jkautos-backend-production.up.railway.app || http://localhost:5000",
         // target: "http://localhost:5000",
         changeOrigin: true,
       },
