@@ -8,7 +8,8 @@ export default defineConfig({
   server: {
     proxy: {
       "/api": {
-        target: "https://jk-autos-backend.onrender.com",
+        target:
+          "https://jk-autos-backend.onrender.com || http://localhost:5000",
         // target: "http://localhost:5000",
         changeOrigin: true,
       },
