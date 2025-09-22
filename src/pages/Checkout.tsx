@@ -535,77 +535,73 @@ const Checkout: React.FC = () => {
                       required
                     />
                   </FormGroup>
+                  <SectionTitle>
+                    <CreditCard size={24} />
+                    Payment Options
+                  </SectionTitle>
+
+                  <PaymentOptions>
+                    <PaymentOption
+                      $selected={paymentMethod === "card"}
+                      onClick={() => setPaymentMethod("card")}>
+                      <input
+                        type="radio"
+                        name="paymentMethod"
+                        value="card"
+                        checked={paymentMethod === "card"}
+                        onChange={(e) => setPaymentMethod(e.target.value)}
+                      />
+                      <CreditCard size={20} />
+                      <span>Credit/Debit Card</span>
+                    </PaymentOption>
+
+                    <PaymentOption
+                      $selected={paymentMethod === "bank"}
+                      onClick={() => setPaymentMethod("bank")}>
+                      <input
+                        type="radio"
+                        name="paymentMethod"
+                        value="bank"
+                        checked={paymentMethod === "bank"}
+                        onChange={(e) => setPaymentMethod(e.target.value)}
+                      />
+                      <Building2 size={20} />
+                      <span>Bank Transfer</span>
+                    </PaymentOption>
+
+                    <PaymentOption
+                      $selected={paymentMethod === "inspection"}
+                      onClick={() => setPaymentMethod("inspection")}>
+                      <input
+                        type="radio"
+                        name="paymentMethod"
+                        value="inspection"
+                        checked={paymentMethod === "inspection"}
+                        onChange={(e) => setPaymentMethod(e.target.value)}
+                      />
+                      <Eye size={20} />
+                      <span>Pay on Inspection</span>
+                    </PaymentOption>
+                  </PaymentOptions>
+
+                  <SecurityNotice>
+                    <Lock size={16} />
+                    Your payment information is encrypted and secure
+                  </SecurityNotice>
+
+                  <Button
+                    type="submit"
+                    variant="primary"
+                    size="large"
+                    fullWidth
+                    disabled={isProcessing}>
+                    {isProcessing ? (
+                      "Processing Payment..."
+                    ) : (
+                      <>Complete Purchase - ₦{totalAmount.toLocaleString()}</>
+                    )}
+                  </Button>
                 </Form>
-              </FormCard>
-
-              <FormCard>
-                <SectionTitle>
-                  <CreditCard size={24} />
-                  Payment Options
-                </SectionTitle>
-
-                <PaymentOptions>
-                  <PaymentOption
-                    $selected={paymentMethod === "card"}
-                    onClick={() => setPaymentMethod("card")}>
-                    <input
-                      type="radio"
-                      name="paymentMethod"
-                      value="card"
-                      checked={paymentMethod === "card"}
-                      onChange={(e) => setPaymentMethod(e.target.value)}
-                    />
-                    <CreditCard size={20} />
-                    <span>Credit/Debit Card</span>
-                  </PaymentOption>
-
-                  <PaymentOption
-                    $selected={paymentMethod === "bank"}
-                    onClick={() => setPaymentMethod("bank")}>
-                    <input
-                      type="radio"
-                      name="paymentMethod"
-                      value="bank"
-                      checked={paymentMethod === "bank"}
-                      onChange={(e) => setPaymentMethod(e.target.value)}
-                    />
-                    <Building2 size={20} />
-                    <span>Bank Transfer</span>
-                  </PaymentOption>
-
-                  <PaymentOption
-                    $selected={paymentMethod === "inspection"}
-                    onClick={() => setPaymentMethod("inspection")}>
-                    <input
-                      type="radio"
-                      name="paymentMethod"
-                      value="inspection"
-                      checked={paymentMethod === "inspection"}
-                      onChange={(e) => setPaymentMethod(e.target.value)}
-                    />
-                    <Eye size={20} />
-                    <span>Pay on Inspection</span>
-                  </PaymentOption>
-                </PaymentOptions>
-
-                <SecurityNotice>
-                  <Lock size={16} />
-                  Your payment information is encrypted and secure
-                </SecurityNotice>
-
-                <Button
-                  type="submit"
-                  variant="primary"
-                  size="large"
-                  fullWidth
-                  disabled={isProcessing}
-                  onClick={handleSubmit}>
-                  {isProcessing ? (
-                    "Processing Payment..."
-                  ) : (
-                    <>Complete Purchase - ₦{totalAmount.toLocaleString()}</>
-                  )}
-                </Button>
               </FormCard>
             </MainSection>
 
