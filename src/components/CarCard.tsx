@@ -121,13 +121,6 @@ const CarTitle = styled.h3`
   margin-bottom: 0.5rem;
 `;
 
-const CarDescription = styled.p`
-  color: #666;
-  font-size: 0.9rem;
-  margin-bottom: 1rem;
-  line-height: 1.5;
-`;
-
 const CarSpecs = styled.div`
   display: grid;
   grid-template-columns: 1fr 1fr;

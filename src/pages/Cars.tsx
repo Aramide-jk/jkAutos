@@ -1,7 +1,7 @@
 import React, { useState, useMemo, useEffect } from "react";
 import styled from "styled-components";
 import { motion } from "framer-motion";
-import { Search, Filter, SlidersHorizontal } from "lucide-react";
+import { Search } from "lucide-react";
 import CarCard from "../components/CarCard";
 import Button from "../components/Button";
 import api from "../services/api";

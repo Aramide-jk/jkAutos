@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { useParams, Link, useNavigate } from "react-router-dom";
+import { useParams, Link } from "react-router-dom";
 import styled from "styled-components";
 import { motion } from "framer-motion";
 import {
@@ -11,8 +11,6 @@ import {
   Shield,
   ChevronLeft,
   ChevronRight,
-  Eye,
-  Heart,
 } from "lucide-react";
 import api from "../services/api";
 import Button from "../components/Button";
@@ -266,7 +264,6 @@ const NotFound = styled.div`
 
 const CarDetail: React.FC = () => {
   const { id } = useParams<{ id: string }>();
-  const navigate = useNavigate();
   const [car, setCar] = useState<any>(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
@@ -409,7 +406,7 @@ const CarDetail: React.FC = () => {
                 transition={{ duration: 0.6, delay: 0.3 }}>
                 <SectionTitle>Specifications</SectionTitle>
                 <SpecsGrid>
-                  {specs.map((spec, index) => (
+                  {specs.map((spec) => (
                     <SpecItem key={spec.label}>
                       <spec.icon size={24} />
                       <SpecContent>

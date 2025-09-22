@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import styled from "styled-components";
 import { motion } from "framer-motion";
-import { Mail, Lock, Eye, EyeOff, User, CheckCircle } from "lucide-react";
+import { Mail, Lock, Eye, EyeOff, CheckCircle } from "lucide-react";
 import Button from "../components/Button";
 import { useAuth } from "../contexts/AuthContext";
 import api from "../services/api";
@@ -171,7 +171,7 @@ const SuccessMessage = styled(motion.div)`
 `;
 
 const SignIn: React.FC = () => {
-  const { login, isAuthenticated } = useAuth();
+  const { login } = useAuth();
   const navigate = useNavigate();
   const [formData, setFormData] = useState({
     email: "",

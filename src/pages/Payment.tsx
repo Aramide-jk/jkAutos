@@ -3,7 +3,7 @@ import { useLocation, useParams, useNavigate } from "react-router-dom";
 import styled from "styled-components";
 import { motion } from "framer-motion";
 import { usePaystackPayment } from "react-paystack";
-import { CreditCard, Lock, Calendar, CheckCircle, User } from "lucide-react";
+import { CheckCircle } from "lucide-react";
 import Button from "../components/Button";
 import api from "../services/api";
 
@@ -63,41 +63,6 @@ const Form = styled.form`
   gap: 1.5rem;
 `;
 
-const FormGroup = styled.div`
-  position: relative;
-`;
-
-const Input = styled.input`
-  width: 100%;
-  padding: 1rem 1rem 1rem 3rem;
-  border: 2px solid rgba(220, 38, 38, 0.2);
-  border-radius: 12px;
-  font-size: 1rem;
-  transition: all 0.3s ease;
-  background: #f8f7f4;
-
-  &:focus {
-    outline: none;
-    border-color: #dc2626;
-    box-shadow: 0 0 0 3px rgba(220, 38, 38, 0.1);
-    background: white;
-  }
-`;
-
-const InputIcon = styled.div`
-  position: absolute;
-  left: 1rem;
-  top: 50%;
-  transform: translateY(-50%);
-  color: #999;
-`;
-
-const ExpiryCvcRow = styled.div`
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 1rem;
-`;
-
 const SuccessMessage = styled(motion.div)`
   text-align: center;
   padding: 4rem 2rem;
@@ -126,7 +91,7 @@ const SuccessMessage = styled(motion.div)`
 `;
 
 const Payment: React.FC = () => {
-  const { id } = useParams<{ id: string }>();
+  useParams<{ id: string }>();
   const location = useLocation();
   const navigate = useNavigate();
   const { formData, car, totalAmount } = location.state || {};
