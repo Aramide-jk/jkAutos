@@ -77,9 +77,13 @@ const HeroButtons = styled(motion.div)`
 `;
 
 const Section = styled.section`
-  padding: 6rem 8rem;
+  padding: 5rem 2rem;
   max-width: 1280px;
   margin: 0 auto;
+
+  @media (max-width: 768px) {
+    padding: 3rem 0;
+  }
 `;
 
 const SectionTitle = styled.h2`
@@ -93,7 +97,8 @@ const SectionTitle = styled.h2`
 
 const FeaturedCarsGrid = styled.div`
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  // grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  grid-template-columns: repeat(4, 1fr);
   gap: 1rem;
   margin-bottom: 3rem;
 
@@ -107,8 +112,8 @@ const ViewAllButton = styled.div`
 `;
 
 const WhyChooseSection = styled.section`
-  padding: 6rem 8rem;
-  background: rgba(220, 38, 38, 0.05);
+  // padding: 5rem 2rem;
+  // background: rgba(220, 38, 38, 0.05);
 `;
 
 const WhyChooseGrid = styled.div`
@@ -165,7 +170,7 @@ const Home: React.FC = () => {
         const response = await api.get("/cars");
         // Assuming the API returns all cars, we slice the first 3 for the feature section
         if (Array.isArray(response.data)) {
-          setFeaturedCars(response.data.slice(0, 3));
+          setFeaturedCars(response.data.slice(0, 8));
           console.log(response.data);
         } else {
           console.error(
@@ -257,10 +262,12 @@ const Home: React.FC = () => {
           viewport={{ once: true }}>
           <SectionTitle>Featured Collection</SectionTitle>
           <FeaturedCarsGrid>
-            {featuredCars.map((car, index) => (
-              <CarCard key={car._id} car={car} index={index} />
-            ))}
+            {featuredCars.map((car, index) => {
+              console.log("cars:", car);
+              return <CarCard key={car._id} car={car} index={index} />;
+            })}
           </FeaturedCarsGrid>
+
           <ViewAllButton>
             <Link to="/cars">
               <Button variant="secondary" size="large">

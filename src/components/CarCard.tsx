@@ -37,22 +37,27 @@ const formatMileage = (mileage: string): string => {
 
 const CardContainer = styled(motion.div)`
   background: white;
-  border-radius: 20px;
+  border-radius: 10px;
   overflow: hidden;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+  // box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
   transition: all 0.3s ease;
+  cursor: pointer;
 
-  &:hover {
-    transform: translateY(-8px);
-    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+  @media (max-width: 480px) {
+    width: 100%;
+    border-radius: 0;
   }
 `;
 
 const ImageContainer = styled.div`
   position: relative;
   width: 100%;
-  height: 260px;
+  height: 200px;
   overflow: hidden;
+
+  // &:hover {
+  //   transform: translateY(-1px);
+  // }
 `;
 
 const CarImage = styled.img`
@@ -62,7 +67,7 @@ const CarImage = styled.img`
   transition: transform 0.5s ease;
 
   ${CardContainer}:hover & {
-    transform: scale(1.05);
+    transform: scale(1.08);
   }
 `;
 
@@ -93,7 +98,7 @@ const ViewButton = styled(Link)`
   transform: translate(-50%, -50%);
   background: rgba(220, 38, 38, 0.9);
   color: white;
-  padding: 0.2rem 0.8rem;
+  padding: 0.2rem 0.6rem;
   border-radius: 12px;
   font-weight: 400;
   text-decoration: none;
@@ -110,12 +115,12 @@ const ViewButton = styled(Link)`
 `;
 
 const CardContent = styled.div`
-  padding: 1.5rem;
+  padding: 0.8rem;
 `;
 
 const CarTitle = styled.h3`
   font-family: "Playfair Display", serif;
-  font-size: 1rem;
+  font-size: 1.2rem;
   font-weight: 600;
   color: #1a1a1a;
   margin-bottom: 0.5rem;
@@ -124,15 +129,21 @@ const CarTitle = styled.h3`
 const CarSpecs = styled.div`
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 0.8rem;
-  margin-bottom: 1.5rem;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+
+  @media (max-width: 768px) {
+    display: flex;
+    gap: 1rem;
+  }
 `;
 
 const SpecItem = styled.div`
   display: flex;
   align-items: center;
   gap: 0.5rem;
-  font-size: 0.9rem;
+  font-size: 0.6rem;
+  font-weight: 600;
   color: #666;
 
   svg {
@@ -148,7 +159,7 @@ const PriceContainer = styled.div`
 `;
 
 const Price = styled.div`
-  font-size: 1.5rem;
+  font-size: 1.2rem;
   font-weight: 500;
   color: #dc2626;
   font-family: "Playfair Display", serif;
@@ -173,7 +184,7 @@ const CarCard: React.FC<CarCardProps> = ({ car, index = 0 }) => {
         <CarImage src={car.images[0]} alt={car.brand} />
         <ImageOverlay />
         <ViewButton to={`/cars/${car._id}`}>
-          <Eye size={18} />
+          <Eye size={16} />
           View
         </ViewButton>
       </ImageContainer>

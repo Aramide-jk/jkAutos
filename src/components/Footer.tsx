@@ -1,11 +1,19 @@
-import React from 'react';
-import styled from 'styled-components';
-import { Link } from 'react-router-dom';
-import { motion } from 'framer-motion';
-import { Car, Phone, Mail, MapPin, Instagram, Facebook, Twitter } from 'lucide-react';
+import React from "react";
+import styled from "styled-components";
+import { Link } from "react-router-dom";
+import { motion } from "framer-motion";
+import {
+  Car,
+  Phone,
+  Mail,
+  MapPin,
+  Instagram,
+  Facebook,
+  Twitter,
+} from "lucide-react";
 
 const FooterContainer = styled.footer`
-  background: #F8F7F4;
+  background: #f8f7f4;
   border-top: 1px solid rgba(220, 38, 38, 0.2);
   padding: 3rem 2rem 1rem;
   margin-top: 4rem;
@@ -35,14 +43,14 @@ const FooterGrid = styled.div`
 
 const FooterSection = styled.div`
   h3 {
-    font-family: 'Playfair Display', serif;
-    color: #1A1A1A;
+    font-family: "Playfair Display", serif;
+    color: #1a1a1a;
     margin-bottom: 1rem;
     font-size: 1.3rem;
   }
 
   p {
-    color: #2B2B2B;
+    color: #2b2b2b;
     margin-bottom: 0.5rem;
     line-height: 1.8;
   }
@@ -52,14 +60,14 @@ const Logo = styled.div`
   display: flex;
   align-items: center;
   gap: 0.5rem;
-  font-family: 'Playfair Display', serif;
+  font-family: "Playfair Display", serif;
   font-size: 1.8rem;
   font-weight: 700;
-  color: #1A1A1A;
+  color: #1a1a1a;
   margin-bottom: 1rem;
 
   .logo-icon {
-    color: #DC2626;
+    color: #dc2626;
   }
 
   @media (max-width: 768px) {
@@ -69,19 +77,19 @@ const Logo = styled.div`
 
 const Tagline = styled.p`
   font-style: italic;
-  color: #DC2626 !important;
+  color: #dc2626 !important;
   font-size: 1.1rem;
   margin-bottom: 1.5rem;
 `;
 
 const FooterLink = styled(Link)`
-  color: #2B2B2B;
+  color: #2b2b2b;
   display: block;
   margin-bottom: 0.8rem;
   transition: color 0.3s ease;
 
   &:hover {
-    color: #DC2626;
+    color: #dc2626;
   }
 `;
 
@@ -90,10 +98,10 @@ const ContactInfo = styled.div`
   align-items: center;
   gap: 0.8rem;
   margin-bottom: 0.8rem;
-  color: #2B2B2B;
+  color: #2b2b2b;
 
   svg {
-    color: #DC2626;
+    color: #dc2626;
     flex-shrink: 0;
   }
 
@@ -109,6 +117,7 @@ const SocialIcons = styled.div`
 
   @media (max-width: 768px) {
     justify-content: center;
+    gap: 3rem;
   }
 `;
 
@@ -120,11 +129,11 @@ const SocialIcon = styled(motion.a)`
   display: flex;
   align-items: center;
   justify-content: center;
-  color: #DC2626;
+  color: #dc2626;
   transition: all 0.3s ease;
 
   &:hover {
-    background: #DC2626;
+    background: #dc2626;
     color: white;
     transform: translateY(-2px);
   }
@@ -134,7 +143,7 @@ const FooterBottom = styled.div`
   text-align: center;
   padding-top: 2rem;
   border-top: 1px solid rgba(220, 38, 38, 0.2);
-  color: #2B2B2B;
+  color: #2b2b2b;
   font-size: 0.9rem;
 `;
 
@@ -150,29 +159,27 @@ const Footer: React.FC = () => {
             </Logo>
             <Tagline>Luxury on Wheels. Curated for You.</Tagline>
             <p>
-              Experience the finest selection of luxury vehicles, carefully curated
-              for the discerning automotive enthusiast. Where excellence meets elegance.
+              Experience the finest selection of luxury vehicles, carefully
+              curated for the discerning automotive enthusiast. Where excellence
+              meets elegance.
             </p>
             <SocialIcons>
               <SocialIcon
                 href="#"
                 whileHover={{ scale: 1.1 }}
-                whileTap={{ scale: 0.9 }}
-              >
+                whileTap={{ scale: 0.9 }}>
                 <Instagram size={18} />
               </SocialIcon>
               <SocialIcon
                 href="#"
                 whileHover={{ scale: 1.1 }}
-                whileTap={{ scale: 0.9 }}
-              >
+                whileTap={{ scale: 0.9 }}>
                 <Facebook size={18} />
               </SocialIcon>
               <SocialIcon
                 href="#"
                 whileHover={{ scale: 1.1 }}
-                whileTap={{ scale: 0.9 }}
-              >
+                whileTap={{ scale: 0.9 }}>
                 <Twitter size={18} />
               </SocialIcon>
             </SocialIcons>
@@ -213,7 +220,10 @@ const Footer: React.FC = () => {
         </FooterGrid>
 
         <FooterBottom>
-          <p>&copy; 2024 jk_Autos. All rights reserved. | Privacy Policy | Terms of Service</p>
+          <p>
+            &copy; 2024 jk_Autos. All rights reserved. | Privacy Policy | Terms
+            of Service
+          </p>
         </FooterBottom>
       </FooterContent>
     </FooterContainer>

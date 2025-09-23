@@ -28,7 +28,7 @@ const BackButton = styled(Link)`
   font-weight: 500;
   text-decoration: none;
   margin: 2rem;
-  padding: 0.8rem 1.5rem;
+  padding: 0.5rem 1rem;
   border: 2px solid #dc2626;
   border-radius: 12px;
   transition: all 0.3s ease;
@@ -43,7 +43,7 @@ const BackButton = styled(Link)`
 const ContentWrapper = styled.div`
   max-width: 1400px;
   margin: 0 auto;
-  padding: 0 2rem 4rem;
+  // padding: 0 2rem 4rem;
 `;
 
 const CarDetailGrid = styled.div`
@@ -53,7 +53,7 @@ const CarDetailGrid = styled.div`
 
   @media (max-width: 1024px) {
     grid-template-columns: 1fr;
-    gap: 3rem;
+    gap: 2rem;
   }
 `;
 
@@ -65,7 +65,7 @@ const MainImageContainer = styled.div`
   position: relative;
   width: 100%;
   height: 400px;
-  border-radius: 20px;
+  // border-radius: 20px;
   overflow: hidden;
   margin-bottom: 1rem;
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
@@ -84,8 +84,8 @@ const ImageNavButton = styled.button`
   background: rgba(248, 247, 244, 0.9);
   color: #dc2626;
   border: none;
-  width: 50px;
-  height: 50px;
+  width: 40px;
+  height: 40px;
   border-radius: 50%;
   display: flex;
   align-items: center;
@@ -130,7 +130,9 @@ const Thumbnail = styled.img<{ $active: boolean }>`
   }
 `;
 
-const InfoSection = styled.div``;
+const InfoSection = styled.div`
+  padding: 0 2rem 4rem;
+`;
 
 const CarHeader = styled.div`
   margin-bottom: 2rem;
@@ -166,7 +168,7 @@ const SpecsGrid = styled.div`
   margin-bottom: 2rem;
 
   @media (max-width: 480px) {
-    grid-template-columns: 1fr;
+    grid-template-columns: 1fr 1fr;
   }
 `;
 
@@ -216,7 +218,7 @@ const FeaturesList = styled.ul`
   gap: 0.8rem;
 
   @media (max-width: 480px) {
-    grid-template-columns: 1fr;
+    grid-template-columns: 1fr 1fr;
   }
 `;
 
@@ -310,7 +312,6 @@ const CarDetail: React.FC = () => {
     );
   }
 
-  // Assuming gallery is an array of image URLs. If not, this needs adjustment.
   const galleryImages = car.images || [];
 
   const nextImage = () => {
@@ -352,7 +353,7 @@ const CarDetail: React.FC = () => {
                 <MainImageContainer>
                   <MainImage
                     src={galleryImages[currentImageIndex]}
-                    alt={car.name}
+                    alt={car.brand}
                   />
                   <ImageNavButton className="prev" onClick={prevImage}>
                     <ChevronLeft size={24} />
@@ -382,7 +383,7 @@ const CarDetail: React.FC = () => {
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.6 }}>
-                  {car.name}
+                  {car.brand} {car.carModel}
                 </CarTitle>
 
                 <CarPrice
@@ -438,13 +439,13 @@ const CarDetail: React.FC = () => {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: 0.5 }}>
                 <ActionButtons>
-                  <Link to={`/checkout/${car.id}`} style={{ flex: 1 }}>
+                  <Link to={`/checkout/${car._id}`} style={{ flex: 1 }}>
                     <Button variant="primary" size="large" fullWidth>
                       Buy Now
                     </Button>
                   </Link>
                   <Link
-                    to={`/book-inspection?car=${car.id}`}
+                    to={`/book-inspection?car=${car._id}`}
                     style={{ flex: 1 }}>
                     <Button variant="outline" size="large" fullWidth>
                       Book Inspection

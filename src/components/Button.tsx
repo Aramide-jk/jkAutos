@@ -18,7 +18,7 @@ const ButtonBase = styled(motion.button)<{
   $fullWidth: boolean;
 }>`
   border: none;
-  border-radius: 16px;
+  border-radius: 10px;
   font-weight: 300;
   cursor: pointer;
   transition: all 0.3s ease;
@@ -34,12 +34,17 @@ const ButtonBase = styled(motion.button)<{
     cursor: not-allowed;
   }
 
+  @media (max-width: 768px) {
+    width: 100%;
+    border-radius: 5px;
+  }
+
   ${(props) => {
     switch (props.$size) {
       case "small":
         return css`
-          padding: 0.2rem 1rem;
-          font-size: 0.9rem;
+          padding: 0.2rem 0.5rem;
+          font-size: 0.7rem;
         `;
       case "large":
         return css`
@@ -65,6 +70,9 @@ const ButtonBase = styled(motion.button)<{
             background: #1a1a1a;
             transform: translateY(-2px);
             box-shadow: 0 10px 25px rgba(43, 43, 43, 0.3);
+
+            @media (max-width: 768px) {
+            border-radius: 0px;
           }
         `;
       case "outline":

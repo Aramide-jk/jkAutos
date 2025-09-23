@@ -10,13 +10,14 @@ const NavContainer = styled(motion.nav)<{ $isScrolled: boolean }>`
   left: 0;
   right: 0;
   z-index: 1000;
-  padding: 1rem 8rem;
-  backdrop-filter: blur(10px);
+  padding: 1rem 2rem;
+  backdrop-filter: blur(1px);
   transition: all 0.3s ease;
   background: ${(props) =>
-    props.$isScrolled ? "rgba(248, 247, 244, 0.95)" : "transparent"};
+    props.$isScrolled ? "rgba(248, 247, 244, 0.95)" : ""};
   border-bottom: ${(props) =>
-    props.$isScrolled ? "1px solid rgba(220, 38, 38, 0.1)" : "none"};
+    props.$isScrolled ? "2px solid rgba(220, 38, 38, 0.1)" : "none"};
+  color: ${(props) => (props.$isScrolled ? "white" : "blue")};
 
   @media (max-width: 768px) {
     padding: 1rem;
@@ -57,11 +58,13 @@ const NavLinks = styled.div<{ $isOpen: boolean }>`
     left: 0;
     right: 0;
     bottom: 0;
-    background: rgba(248, 247, 244, 0.98);
+    z-index: 1000;
+    // background: rgba(248, 247, 244, 0.98);
     backdrop-filter: blur(20px);
     flex-direction: column;
     justify-content: center;
-    gap: 3rem;
+    padding-top: 6rem;
+    gap: 1rem;
     transform: ${(props) =>
       props.$isOpen ? "translateX(0)" : "translateX(100%)"};
     transition: transform 0.3s ease;
@@ -69,8 +72,8 @@ const NavLinks = styled.div<{ $isOpen: boolean }>`
 `;
 
 const NavLink = styled(Link)<{ $isActive: boolean }>`
-  color: #2b2b2b;
-  font-weight: 500;
+  color: red;
+  font-weight: 400;
   position: relative;
   transition: color 0.3s ease;
 

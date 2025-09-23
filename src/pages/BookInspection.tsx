@@ -42,7 +42,7 @@ const PageSubtitle = styled(motion.p)`
 `;
 
 const FormSection = styled.section`
-  padding: 4rem 2rem;
+  // padding: 4rem 2rem;
   max-width: 800px;
   margin: 0 auto;
 `;
@@ -260,6 +260,7 @@ const BookInspection: React.FC = () => {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsLoading(true);
+    console.log("hello");
 
     try {
       await api.post("/inspections", {
@@ -269,7 +270,6 @@ const BookInspection: React.FC = () => {
       setIsSubmitted(true);
     } catch (error) {
       console.error("Failed to book inspection:", error);
-      // Here you would handle the error, maybe show a message to the user
       alert("Failed to book inspection. Please try again later.");
     } finally {
       setIsLoading(false);
